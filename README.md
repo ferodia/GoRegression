@@ -1,7 +1,7 @@
 # GoRegression
 Ths is a library containing regression algorithms for machine learning using Golang.
 * Linear regression with Gradient descent
-* LOgistic regression with Gradient descent (to come)
+* Logistic regression with Gradient descent (to come)
 
 ## How to
 
