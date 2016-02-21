@@ -1,4 +1,4 @@
-# GoRegression
+# GoRegression [![Build Status](https://travis-ci.org/ferodia/GoRegression.svg?branch=master)](https://travis-ci.org/ferodia/GoRegression)
 Ths is a library containing regression algorithms for machine learning using Golang.
 * Linear regression with Gradient descent
 * Logistic regression with Gradient descent (to come)
