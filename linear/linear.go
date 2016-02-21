@@ -77,5 +77,3 @@ func predict(X, theta *mat64.Dense) (predictions []float64) {
 	}
 	return
 }
-
-

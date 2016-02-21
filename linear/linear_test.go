@@ -56,7 +56,7 @@ func TestRun(t *testing.T) {
 
 func BenchmarkRun(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		for _,test := range RunCases {
+		for _, test := range RunCases {
 			Run(test.X, test.Y)
 		}
 	}
