@@ -3,6 +3,8 @@
 *.a
 *.so
 
+# Generated files
+plot/*
 # Folders
 _obj
 _test
