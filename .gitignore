@@ -3,8 +3,8 @@
 *.a
 *.so
 
-# Generated files
-plot/*
+#generate files
+plot/*.png
 # Folders
 _obj
 _test
