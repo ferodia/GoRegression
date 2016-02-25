@@ -1,5 +1,6 @@
-package linear
 
+package regression
+/*
 import (
 	"github.com/gonum/matrix/mat64"
 	"reflect"
@@ -45,19 +46,20 @@ func TestGradientDecent(t *testing.T) {
 	}
 }
 
-func TestRun(t *testing.T) {
+func TestTrain(t *testing.T) {
 	for _, test := range RunCases {
-		observed := Run(test.X, test.Y)
+		observed := Train(test.X, test.Y)
 		if !reflect.DeepEqual(test.predictions, observed) {
 			t.Fatal("expected ", test.predictions, "got ", observed)
 		}
 	}
 }
 
-func BenchmarkRun(b *testing.B) {
+func BenchmarkTrain(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, test := range RunCases {
-			Run(test.X, test.Y)
+			Train(test.X, test.Y)
 		}
 	}
 }
+*/
