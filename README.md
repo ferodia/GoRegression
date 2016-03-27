@@ -1,7 +1,7 @@
 # GoRegression [![Build Status](https://travis-ci.org/ferodia/GoRegression.svg?branch=master)](https://travis-ci.org/ferodia/GoRegression)
 Ths is a library containing regression algorithms for machine learning using Golang.
 * Linear regression with Gradient descent
-* Logistic regression with Gradient descent (to come)
+* Logistic regression with Gradient descent
 
 ## How to
 
@@ -24,8 +24,6 @@ Ths is a library containing regression algorithms for machine learning using Gol
 
 ### TODO
 - change the architecture and remove X and Y, to have them as inputs
-- implement an example for logistic regression
-- code review
 - write unit tests
 
 
