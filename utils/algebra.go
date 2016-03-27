@@ -51,5 +51,5 @@ func Accuracy(y, pred []float64) float64 {
 			acc++
 		}
 	}
-	return acc/float64(len(y)
+	return acc/float64(len(y))
 }
