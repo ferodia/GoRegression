@@ -5,20 +5,28 @@ Ths is a library containing regression algorithms for machine learning using Gol
 
 ## How to
 
-####Intall dependencies
+#### Install dependencies
 
 * go get github.com/gonum/plot
 * go get github.com/gonum/matrix
 
-####Run the example:
+#### Run the example:
 
 * go install 
 * go run regression.go
 
-####Use the library:
+#### Use the library:
 
 * Get the library using 'go get gitub.com/ferodia/GoRegression'
 * Import it in your go file 'import github.com/ferodia/GoRegression/linear'
+
+
+
+### TODO
+- change the architecture and remove X and Y, to have them as inputs
+- implement an example for logistic regression
+- code review
+- write unit tests
 
 
 

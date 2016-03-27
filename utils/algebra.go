@@ -8,27 +8,9 @@ import (
 // This package contains all the mathematical computations needed by the regression algorithms
 
 
-func GradientDescent(X, Y, theta *mat64.Dense, alpha float64, iter int) {
-	m, _ := Y.Caps()
-	H := mat64.NewDense(m, 1, nil)
-	temp := mat64.NewDense(1, 2, nil)
-	C := mat64.NewDense(m, 1, nil)
-	for i := 0; i <= iter; i++ {
-		H.Mul(X, theta.T())
-		C.Apply(func(i, j int, v float64) float64 { return -v }, Y)
-		H.Add(H, C)
-		for j := 0; j < 2; j++ {
-			temp.Set(0, j, theta.At(0, j)-((alpha/float64(m))*mat64.Sum(dotProduct(H, X.ColView(j)))))
-		}
-		for j := 0; j < 2; j++ {
-			theta.Set(0, j, temp.At(0, j))
-		}
-		computeCost(X, Y, theta)
-	}
 
-}
 
-func dotProduct(X *mat64.Dense, Y *mat64.Vector) *mat64.Dense {
+func DotProduct(X *mat64.Dense, Y *mat64.Vector) *mat64.Dense {
 
 	l, _ := X.Dims()
 	P := mat64.NewDense(l, 1, nil)
@@ -38,16 +20,36 @@ func dotProduct(X *mat64.Dense, Y *mat64.Vector) *mat64.Dense {
 	return P
 }
 
-func computeCost(X, Y, theta *mat64.Dense) (cost float64) {
-	m, _ := Y.Caps()
-	H := mat64.NewDense(m, 1, nil)
-	C := mat64.NewDense(m, 1, nil)
-	H.Mul(X, theta.T())
-	C.Apply(func(i, j int, v float64) float64 { return -v }, Y)
-	H.Add(H, C)
+// Apply simoid function on every element of the matrix
+func SigmoidMatrix(X *mat64.Dense) ( *mat64.Dense) {
+	sigmat := &mat64.Dense{}
+	sigmat.Apply(func(i, j int, v float64) float64 { return sigmoid(v) },X)
+	return sigmat
+}
 
-	H.Apply(func(i, j int, v float64) float64 { return math.Pow(v, 2) }, H)
-	cost = (1 / (2 * float64(m)) * mat64.Sum(H))
-	//fmt.Println("computed cost ", cost)
-	return
+func Subtract(x float64, A * mat64.Dense) (*mat64.Dense)  {
+	S := &mat64.Dense{}
+	S.Apply(func(i, j int, v float64) float64 { return x-v }, A)
+	return S
+}
+
+func Log(X *mat64.Dense) (*mat64.Dense) {
+	S := &mat64.Dense{}
+	S.Apply(func(i, j int, v float64) float64 { return math.Log(v) }, X)
+	return S
+}
+
+func sigmoid(x float64) (z float64) {
+	return(1/(1+math.Exp(-x)))
+}
+
+
+func Accuracy(y, pred []float64) float64 {
+	acc := 0.0
+	for index, value := range y {
+		if value == pred[index]{
+			acc++
+		}
+	}
+	return acc/float64(len(y))
 }
